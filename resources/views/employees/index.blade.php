@@ -1,7 +1,7 @@
 @include('partials.header')
 <?php $array = array('title' => 'Employee System') ;?>
 <x-nav :data="$array" />
-
+<x-messages />
 
 
 <header class="max-w-lg mx-auto mt-5">
@@ -28,6 +28,9 @@
                     </th>
                     <th scope="col" class="py-3 px-6">
                         Age
+                    </th>
+                    <th scope="col">
+
                     </th>
                     {{-- <th scope="col" class="py-3 px-6">
                         Department
@@ -65,10 +68,17 @@
                     <td class="py-4 px-6">
                         {{$employee->age}}
                     </td>
+                    <td class="py-4 px-6">
+                        <a href="/employee/{{$employee->id}}" class="bg-sky-600 text-white px-4 py-1 rounded hover:bg-blue-700">view</a>
+                    </td>
                 </tr>
                 @endforeach
             </tbody>
         </table>
+        <div class="mx-auto max-w-md pt-6 p-4">
+            {{$employees->links()}}
+        </div>
+        
     </div>
 </section>
 @include('partials.footer')

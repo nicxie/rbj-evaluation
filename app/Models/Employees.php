@@ -7,6 +7,9 @@ use Illuminate\Database\Eloquent\Model;
 
 class Employees extends Model
 {
+
+    protected $guarded = [];
+
     use HasFactory;
     // public function index()
     // {

@@ -1,7 +1,7 @@
 <ul class="flex flex-col md:flex-row px-2 bg-gray-400">
     @auth
     <li>
-        <a href="/add/student" class="block py-2 pr-4 pl-3 hover:text-blue-700">Add New</a>
+        <a href="/add/employee" class="block py-2 pr-4 pl-3 hover:text-blue-700">Add New</a>
     </li>
     <li>
         <form action="/logout" method="POST">

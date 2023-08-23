@@ -26,8 +26,8 @@ class AppServiceProvider extends ServiceProvider
 
         View::share('title', 'RBJ Comtrex Admin');
 
-        View::composer('employees.index', function($view) {
-            $view->with('employees', Employees::all());
-        });
+        // View::composer('employees.index', function($view) {
+        //     $view->with('employees', Employees::all());
+        // });
     }
 }

@@ -3,6 +3,8 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\EmployeeController;
 use App\Http\Controllers\UserController;
+use App\Models\Employees;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -50,12 +52,20 @@ use App\Http\Controllers\UserController;
 
 // Route::get('/employees/{id}', [EmployeeController::class, 'show']);
 
-Route::get('/', [EmployeeController::class, 'index'])->middleware('auth');
-Route::get('/register', [UserController::class, 'register']);
-Route::get('/login', [UserController::class, 'login'])->name('login')->middleware('guest');
-Route::post('/login/process', [UserController::class, 'process']);
+Route::controller(UserController::class)->group(function(){
+    Route::get('/register', 'register');
+    Route::get('/login', 'login')->name('login')->middleware('guest');
+    Route::post('/login/process', 'process');
+    Route::post('/logout', 'logout');
+    Route::post('/store', 'store');
+});
 
-Route::post('/logout', [UserController::class, 'logout']);
-
-Route::post('/store', [UserController::class, 'store']);
+Route::controller(EmployeeController::class)->group(function(){
+    Route::get('/', 'index')->middleware('auth');
+    Route::get('/add/employee', 'create');
+    Route::post('/add/employee', 'store');
+    Route::get('/employee/{id}', 'show');
+    Route::put('/employee/{employee}', 'update');
+    Route::delete('/employee/{employee}', 'destroy');
+});
 
