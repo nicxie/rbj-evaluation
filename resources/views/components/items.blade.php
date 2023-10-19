@@ -6,7 +6,7 @@
     <li>
         <form action="/logout" method="POST">
             @csrf
-            <button href="/logout" class="block py-2 pr-4 pl-3 hover:text-red-700">Logout</button>
+            <button href="/logout" class="bold  py-2 pr-4 pl-3 hover:text-red-700">Logout</button>
         </form>
     </li>
     @else
